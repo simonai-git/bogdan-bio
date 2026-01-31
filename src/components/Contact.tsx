@@ -59,7 +59,7 @@ const socialLinks = [
   {
     name: "Schedule",
     handle: "Book a call",
-    href: "https://cal.com/bogdan-alexandrescu",
+    href: "https://bogdan.rsvp",
     icon: (
       <svg
         className="w-5 h-5"
