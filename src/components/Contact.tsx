@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 import Link from "next/link";
 
 const socialLinks = [
@@ -76,6 +77,13 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    name: "Resume",
+    handle: "Download CV",
+    href: "/resume.pdf",
+    icon: <Download className="w-5 h-5" />,
+    download: true,
+  },
 ];
 
 export function Contact() {
@@ -104,8 +112,9 @@ export function Contact() {
             <Link
               key={link.name}
               href={link.href}
-              target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              target={link.href.startsWith("mailto:") || link.href.startsWith("/") ? undefined : "_blank"}
+              rel={link.href.startsWith("mailto:") || link.href.startsWith("/") ? undefined : "noopener noreferrer"}
+              download={"download" in link ? link.download : undefined}
               className={`animate-fade-in-up animation-delay-${(index + 3) * 100} group flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300`}
             >
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-indigo-500/20 flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-indigo-500/30 transition-all duration-300">
